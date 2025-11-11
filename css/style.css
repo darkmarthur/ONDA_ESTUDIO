@@ -1764,3 +1764,177 @@ footer {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(0,0,0,0.03)" /></svg>');
   z-index: -1;
 } */
+
+/* Override offsetting of sections */
+.section-right {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Make full sections span entire width */
+section.fullwidth {
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Keep content centered and readable */
+section .inner {
+  width: 100%;
+  max-width: 1400px; /* tweak to taste */
+  margin: 0 auto;
+  padding: 0 2rem; /* breathing room */
+}
+
+
+/* News section title */
+.section-title {
+  font-family: "swanseabold", sans-serif;
+  font-size: 2rem;
+  margin: 1.25rem 0;
+  letter-spacing: 0.02em;
+}
+
+/* Full-width banner */
+.news-banner {
+  width: 100%;
+  height: 800px;                 /* target height */
+  min-height: 360px;
+  position: relative;
+  background-size: cover;
+  background-position: top center; /* show top of image (crop bottom) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* dark overlay to ensure readability when hovered button visible */
+.news-banner .news-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  pointer-events: none;
+  transition: background 220ms ease;
+}
+
+/* inner wrapper to constrain the CTA */
+.news-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center CTA horizontally */
+  height: 100%;
+}
+
+/* CTA: hidden by default, visible on hover/focus of banner */
+.news-cta {
+  display: inline-block;
+  padding: 0.65rem 1.1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(44,104,247,0.18);
+  background: rgba(44,104,247,0.95); /* primary color */
+  color: #fff;
+  font-family: "swanseabold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  transition: opacity 220ms ease, transform 220ms ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  pointer-events: none; /* prevent tab focus when hidden */
+}
+
+/* Hover / focus behavior to reveal CTA */
+.news-banner:hover .news-cta,
+.news-banner:focus-within .news-cta {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  color: #fff;
+
+}
+
+/* Slight overlay darkening on hover to make button more contrasty */
+.news-banner:hover .news-overlay,
+.news-banner:focus-within .news-overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+/* Small-screen adjustments */
+@media (max-width: 768px) {
+  .news-banner {
+    height: auto;
+    padding: 3.5rem 0;
+    align-items: center;
+  }
+  .news-inner { padding: 0 1rem; }
+  .news-cta { opacity: 1; pointer-events: auto; } /* show CTA by default on small screens for discoverability */
+  .section-title { font-size: 1.5rem; }
+}
+
+/* News footer (outside banner) */
+.news-footer {
+  padding: 2rem 0 4rem 0;
+}
+
+.news-footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* thumbnail image */
+.news-thumb {
+  width: 220px;
+  height: 120px;
+  overflow: hidden;
+  flex: 0 0 220px;
+  border-radius: 6px;
+  margin: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.news-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* ensure top of thumb visible */
+  display: block;
+}
+
+/* description text */
+.news-desc {
+  color: #787878;
+}
+.news-foot-title {
+  font-family: "swanseabold";
+  color: #000;
+  margin: 0 0 0.4rem 0;
+  font-size: 1.125rem;
+}
+.news-foot-text {
+  margin: 0;
+  color: #6b6b6b;
+  line-height: 1.45;
+}
+
+/* Responsive footer: stack on small screens */
+@media (max-width: 768px) {
+  .news-footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .news-thumb { width: 100%; max-width: 540px; height: 260px; }
+  .news-desc { padding: 0 1rem; }
+  .news-foot-title { margin-top: 1rem; }
+}
