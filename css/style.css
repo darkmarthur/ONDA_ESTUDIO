@@ -1941,3 +1941,117 @@ section .inner {
 
 
 
+
+/* ONDA LABS GROUP SITES Collapsible */
+.onda-labs-group-sites {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+  width: 100%;
+}
+
+.group-sites-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "swanseabold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  outline: none;
+}
+
+.group-sites-toggle:hover, .group-sites-toggle:focus {
+  color: #2c68f7;
+  text-decoration: none;
+}
+
+.group-sites-toggle .toggle-icon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.group-sites-toggle[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.group-sites-content {
+  display: none;
+  margin-top: 2rem;
+}
+
+.group-sites-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.group-site-category {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .group-site-category {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .group-site-category {
+    width: 25%;
+  }
+}
+
+.group-site-category h4 {
+  font-family: "swanseabold";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #2c68f7;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  letter-spacing: 0.05em;
+}
+
+.group-site-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.group-site-category li {
+  margin-bottom: 1.2rem;
+}
+
+.group-site-category a {
+  display: block;
+  font-family: "swanseabold";
+  font-size: 0.95rem;
+  color: #000;
+  text-decoration: none;
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+.group-site-category a:hover {
+  color: #2c68f7;
+}
+
+.group-site-desc {
+  display: block;
+  font-family: "swansearegular";
+  font-size: 0.85rem;
+  color: #787878;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}

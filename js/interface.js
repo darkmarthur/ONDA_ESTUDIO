@@ -277,3 +277,45 @@
     });
   }
 })(jQuery);
+
+/* ONDA LABS GROUP SITES Collapsible */
+(function ($) {
+  "use strict";
+  
+  $('.group-sites-toggle').on('click', function() {
+    var $this = $(this);
+    var $content = $('#group-sites-content');
+    var isExpanded = $this.attr('aria-expanded') === 'true';
+    
+    $this.attr('aria-expanded', !isExpanded);
+    
+    if (!isExpanded) {
+      $content.slideDown(300, function() {
+        // Recalculate footer height after expansion
+        if (typeof footerHeight === 'function') {
+          footerHeight();
+        } else {
+          // Fallback if footerHeight is not global
+          $("body.fixed-footer .wrapper").css("margin-bottom", function (e) {
+            return $("body.fixed-footer footer").outerHeight();
+          });
+        }
+      });
+      $content.addClass('expanded');
+    } else {
+      $content.slideUp(300, function() {
+        // Recalculate footer height after collapse
+        if (typeof footerHeight === 'function') {
+          footerHeight();
+        } else {
+           // Fallback if footerHeight is not global
+           $("body.fixed-footer .wrapper").css("margin-bottom", function (e) {
+            return $("body.fixed-footer footer").outerHeight();
+          });
+        }
+      });
+      $content.removeClass('expanded');
+    }
+  });
+
+})(jQuery);
